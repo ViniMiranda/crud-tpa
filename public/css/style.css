@@ -1,0 +1,116 @@
+#tabela {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#tabela td,
+#tabela th {
+  border: 1px solid rgb(0, 0, 0);
+  padding: 8px;
+}
+
+#tabela tr:nth-child(even) {
+  background-color: #c5c5c5;
+  color: black;
+}
+
+#tabela tr {
+  background-color: rgb(24, 24, 24);
+  color: white;
+}
+#tabela tr:hover {
+  background-color: rgb(5, 5, 5);
+}
+#tabela tr:nth-child(even):hover {
+  background-color: rgb(56, 56, 56);
+  color: white;
+}
+
+#tabela th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(161, 9, 9);
+  color: white;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: rgb(21, 22, 68);
+
+}
+.alter {
+  position: relative;
+  display: inline-block;
+  padding: 12px 10px;
+  margin: 10px 0;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 40px;
+  background: linear-gradient(90deg, rgb(29, 0, 53), rgb(17, 74, 107));
+}
+
+.excluir {
+  position: relative;
+  display: inline-block;
+  padding: 12px 10px;
+  margin: 10px 0;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 40px;
+  background: linear-gradient(90deg, rgb(231, 9, 9), rgb(71, 5, 5));
+}
+
+.new {
+  position: relative;
+  display: inline-block;
+  padding: 12px 10px;
+  margin: 10px 0;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 40px;
+  background: linear-gradient(90deg, rgb(0, 29, 53), rgb(68, 7, 211));
+}
+.container{
+  display: flex;
+  align-items: center;
+  height: 95vh;
+  flex-direction: column;
+  overflow:hidden;
+}
+.users {
+  margin: auto;
+  height: 90%;
+  width: 80%;
+  overflow: auto;
+}
+.users-visible{
+
+  background-color: #fff;
+  height: 80vh;
+  width: 90vw;
+  border-radius: 40px;
+  overflow: hidden;
+}
+@media only screen and (max-width: 400px) {
+  #tabela th {
+    border: 1px solid rgb(0, 0, 0);
+    padding: 0;
+  }
+.users-visible{
+  background-color: black;
+}
+}
