@@ -18,12 +18,12 @@ class Livro
         try {
             $this->conn = new PDO(SVR, USR, PWD);
         } catch (\Throwable $th) {
-            echo ('Ops algo deu errado ao conectar-se com a base de dados');
+            echo ('<h5>Ops algo deu errado ao conectar-se com a base de dados<h5>');
             die();
         }
     }
     //Listar todos
-    public function findAll()
+    public function readAll()
     {
         $sql = $this->conn->prepare("SELECT
         l.id,
@@ -39,29 +39,38 @@ class Livro
         return $rows;
     }
     //Achar por id
-    public function findOne($id)
+    public function readOne()
     {
         $sql = $this->conn->prepare(
-            "SELECT l.id, l.titulo, l.autores
-            FROM livro l WHERE l.id = $id"
+            "SELECT * FROM livro WHERE id=?"
         );
-        $sql->execute();
+        echo("Seu id é :".$this->id);
+        $sql->execute([$this->id]);
+        $row = $sql->fetchObject();
+        return $row;
 
-        $rows = $sql->fetchObject(PDO::FETCH_CLASS);
     }
-
+    //criar novo livro
     public function create()
     {
+        var_dump($this->getTitulo());
         $sql = $this->conn->prepare("INSERT INTO livro (titulo, autores) VALUES(?,?)");
         //passando this.getTitulo() e this.getAutores() como parametros para a function execute
         $sql->execute([$this->getTitulo(), $this->getAutores()]);
     }
-
-    public function delete($id)
+    //alterar livro
+    public function update(){
+        var_dump($this->getId());
+        $sql = $this->conn->prepare(
+            "UPDATE livro SET titulo=?, autores=? WHERE id=?"
+        );
+        $sql->execute([$this->getTitulo(), $this->getAutores(), $this->getId()]);
+    }
+    //deletar livro
+    public function delete()
     {
-
-        $sql = $this->conn->prepare("DELETE FROM usuario WHERE id = $id");
-        $sql->execute();
+        $sql = $this->conn->prepare("DELETE FROM livro WHERE id = ?");
+        $sql->execute([$this->id]);
     }
 
     //getters and setters
